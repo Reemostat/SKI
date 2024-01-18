@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send</title>
+</head>
+<body>
+<h1>Send</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label>
+        <span>Enter Plain Text</span>
+        <textarea name="text"></textarea>
+    </label>
+    <br>
+    <label>
+        <span>Key</span>
+        <input type="text" name="key" value="{{ key }}"/>
+    </label>
+    <br>
+    <input type="submit" value="Create Secure Message"/>
+    <br>
+    {% if message_id %}
+        <span id="link"><a href="">{{ message_id }}</a></span>
+    {% endif %}
+</form>
+</body>
+</html>

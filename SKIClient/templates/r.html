@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retrieve Message</title>
+</head>
+<body>
+<h1>Retrieve Message</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    <label>
+        <span>Message ID</span>
+        <input type="text" name="message_id" placeholder="ABCDEFGHIJKLMNOP"/>
+    </label>
+    <label>
+        <span>Shared Secret</span>
+        <input type="text" name="key" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx="/>
+    </label>
+    <input type="submit" value="Retrieve Message"/>
+</form>
+<label>
+    <span>Message</span>
+    <textarea name="message" placeholder="Your message will be displayed after you click 'Retrieve Message'" readonly
+    >{% if message %}{{ message }}{% endif %}</textarea>
+</label>
+</body>
+</html>
